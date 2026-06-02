@@ -1,10 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { Zap, Swords, Eye, Gauge, ShoppingCart } from "lucide-react";
+import { Swords, Eye, Gauge, ShoppingCart, Check, Sparkles } from "lucide-react";
+import logoAsset from "@/assets/astraware-logo.png.asset.json";
 
 const PURCHASE_URL = "https://astrawareclient.sellauth.com/";
-const DISCORD_URL = "https://discord.gg/astraware";
+const DISCORD_URL = "https://discord.gg/9MgH3fQuyy";
 const TIKTOK_URL = "https://www.tiktok.com/@qr3_33";
+const PRICE = "$17";
 
 const TIKTOKS = [
   "https://www.tiktok.com/@qr3_33/video/7632476711342378262",
@@ -13,19 +15,26 @@ const TIKTOKS = [
 ];
 
 const FEATURES = [
-  { icon: Eye, title: "Visuals", desc: "Stunning shaders, custom HUD, smooth animations that make every frame pop." },
-  { icon: Swords, title: "Combat", desc: "Precision aim assist, reach indicators, and combat modules tuned for crystal PvP." },
-  { icon: Gauge, title: "Performance", desc: "Optimized for high FPS on any rig. Lightweight, stable, no lag spikes." },
-  { icon: Zap, title: "And More", desc: "Constant updates, premium support, and exclusive modules every week." },
+  { icon: Eye, title: "Visuals", desc: "Custom HUD, smooth shaders, clean animations — every frame looks sharp." },
+  { icon: Swords, title: "Combat", desc: "Tuned modules for fast, accurate PvP across every gamemode." },
+  { icon: Gauge, title: "Performance", desc: "Optimized for high FPS on any rig. Lightweight, stable, no lag." },
+  { icon: Sparkles, title: "And More", desc: "Regular updates, premium support, and new modules added often." },
+];
+
+const ROADMAP = [
+  "Sword PvP module",
+  "Crystal PvP module",
+  "Spear PvP module",
+  "Mace PvP module",
 ];
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "AstraWare Client — Best Cheap Minecraft 1.21 Client" },
-      { name: "description", content: "AstraWare Client for Minecraft 1.21 — best cheap option for visuals, combat, and performance." },
-      { property: "og:title", content: "AstraWare Client — Minecraft 1.21" },
-      { property: "og:description", content: "Best cheap Minecraft client for visuals, combat & performance." },
+      { title: "AstraWare Client — Minecraft 1.21.11" },
+      { name: "description", content: "AstraWare Client for Minecraft 1.21.11 — the best cheap client for visuals, combat, and performance. Only $17." },
+      { property: "og:title", content: "AstraWare Client — Minecraft 1.21.11" },
+      { property: "og:description", content: "Best cheap Minecraft client for visuals, combat & performance. Only $17." },
     ],
   }),
   component: Index,
@@ -43,16 +52,18 @@ function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Nav */}
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-background/70 border-b border-border">
+      <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border">
         <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-md" style={{ background: "var(--gradient-primary)", boxShadow: "var(--glow-primary)" }} />
-            <span className="font-display font-bold text-lg tracking-wider">ASTRAWARE</span>
-          </div>
-          <nav className="flex items-center gap-3 text-sm">
+          <a href="#" className="flex items-center gap-2.5">
+            <img src={logoAsset.url} alt="AstraWare" className="h-8 w-8 invert" />
+            <span className="font-display font-extrabold text-lg tracking-tight">AstraWare</span>
+          </a>
+          <nav className="flex items-center gap-5 text-sm">
             <a href="#features" className="hidden sm:inline text-muted-foreground hover:text-foreground transition">Features</a>
+            <a href="#roadmap" className="hidden sm:inline text-muted-foreground hover:text-foreground transition">Roadmap</a>
             <a href="#clips" className="hidden sm:inline text-muted-foreground hover:text-foreground transition">Clips</a>
-            <a href={PURCHASE_URL} target="_blank" rel="noreferrer" className="px-4 py-2 rounded-md text-sm font-semibold text-primary-foreground" style={{ background: "var(--gradient-primary)" }}>
+            <a href={PURCHASE_URL} target="_blank" rel="noreferrer"
+               className="px-4 py-2 rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:opacity-90 transition">
               Purchase
             </a>
           </nav>
@@ -62,20 +73,21 @@ function Index() {
       {/* Hero */}
       <section className="relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
         <div className="mx-auto max-w-5xl px-6 py-28 md:py-40 text-center relative z-10">
-          <div className="inline-block px-3 py-1 rounded-full border border-border bg-card/50 text-xs uppercase tracking-widest text-muted-foreground mb-6">
+          <img src={logoAsset.url} alt="AstraWare" className="mx-auto h-20 w-20 mb-8 invert" style={{ filter: "invert(1) drop-shadow(0 0 30px rgba(255,255,255,0.25))" }} />
+          <div className="inline-block px-3 py-1 rounded-full border border-border bg-card/60 text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6">
             Minecraft 1.21.11 · Java Edition
           </div>
-          <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-            <span className="bg-clip-text text-transparent" style={{ backgroundImage: "var(--gradient-primary)" }}>AstraWare</span> Client
+          <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-[1.05]">
+            AstraWare Client
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
             The best cheap option for <span className="text-foreground font-semibold">visuals</span>, <span className="text-foreground font-semibold">combat</span>, <span className="text-foreground font-semibold">performance</span> and more.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <a href={PURCHASE_URL} target="_blank" rel="noreferrer"
-               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg font-semibold text-primary-foreground transition hover:scale-105"
-               style={{ background: "var(--gradient-primary)", boxShadow: "var(--glow-primary)" }}>
-              <ShoppingCart className="h-4 w-4" /> Purchase Now
+               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg font-semibold bg-primary text-primary-foreground transition hover:scale-[1.03]"
+               style={{ boxShadow: "var(--glow-primary)" }}>
+              <ShoppingCart className="h-4 w-4" /> Purchase — {PRICE}
             </a>
             <a href={DISCORD_URL} target="_blank" rel="noreferrer"
                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg font-semibold border border-border bg-card hover:bg-secondary transition">
@@ -91,13 +103,13 @@ function Index() {
 
       {/* Features */}
       <section id="features" className="mx-auto max-w-6xl px-6 py-24">
-        <h2 className="text-3xl md:text-5xl font-bold text-center mb-4">Why AstraWare</h2>
+        <h2 className="text-3xl md:text-5xl font-extrabold text-center mb-4">Why AstraWare</h2>
         <p className="text-center text-muted-foreground mb-14">Premium features. Cheap price. No compromise.</p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {FEATURES.map((f) => (
-            <div key={f.title} className="p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition group" style={{ boxShadow: "var(--shadow-card)" }}>
-              <div className="h-11 w-11 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition" style={{ background: "var(--gradient-primary)" }}>
-                <f.icon className="h-5 w-5 text-primary-foreground" />
+            <div key={f.title} className="p-6 rounded-xl bg-card border border-border hover:border-foreground/40 transition group" style={{ boxShadow: "var(--shadow-card)" }}>
+              <div className="h-11 w-11 rounded-lg flex items-center justify-center mb-4 bg-secondary border border-border group-hover:bg-primary group-hover:text-primary-foreground transition">
+                <f.icon className="h-5 w-5" />
               </div>
               <h3 className="font-bold text-lg mb-2">{f.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
@@ -106,10 +118,26 @@ function Index() {
         </div>
       </section>
 
+      {/* Roadmap */}
+      <section id="roadmap" className="mx-auto max-w-4xl px-6 py-24 border-t border-border">
+        <h2 className="text-3xl md:text-5xl font-extrabold text-center mb-4">What's Coming</h2>
+        <p className="text-center text-muted-foreground mb-14">Shipping in the next few updates. Regular releases, not weekly hype.</p>
+        <div className="grid sm:grid-cols-2 gap-3">
+          {ROADMAP.map((item) => (
+            <div key={item} className="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
+              <div className="h-6 w-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center shrink-0">
+                <Check className="h-3.5 w-3.5" strokeWidth={3} />
+              </div>
+              <span className="font-medium">{item}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* TikToks */}
       <section id="clips" className="mx-auto max-w-6xl px-6 py-24 border-t border-border">
-        <h2 className="text-3xl md:text-5xl font-bold text-center mb-4">See It In Action</h2>
-        <p className="text-center text-muted-foreground mb-14">Real clips from the community.</p>
+        <h2 className="text-3xl md:text-5xl font-extrabold text-center mb-4">See It In Action</h2>
+        <p className="text-center text-muted-foreground mb-14">Real clips from real gameplay.</p>
         <div className="grid md:grid-cols-3 gap-6 justify-items-center">
           {TIKTOKS.map((url) => {
             const id = url.split("/video/")[1];
@@ -131,17 +159,21 @@ function Index() {
       {/* CTA */}
       <section className="mx-auto max-w-4xl px-6 py-24 text-center">
         <div className="p-10 md:p-14 rounded-2xl border border-border" style={{ background: "var(--gradient-hero)", boxShadow: "var(--glow-primary)" }}>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Ready to dominate?</h2>
-          <p className="text-muted-foreground mb-8">Grab AstraWare Client now and feel the difference.</p>
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4">Ready to dominate?</h2>
+          <p className="text-muted-foreground mb-2">Full client. Lifetime access.</p>
+          <p className="text-5xl font-extrabold mb-8">{PRICE}</p>
           <a href={PURCHASE_URL} target="_blank" rel="noreferrer"
-             className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-bold text-primary-foreground transition hover:scale-105"
-             style={{ background: "var(--gradient-primary)" }}>
+             className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-bold bg-primary text-primary-foreground transition hover:scale-[1.03]">
             <ShoppingCart className="h-5 w-5" /> Purchase AstraWare
           </a>
         </div>
       </section>
 
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
+        <div className="flex items-center justify-center gap-2 mb-2">
+          <img src={logoAsset.url} alt="" className="h-5 w-5 invert opacity-80" />
+          <span className="font-semibold text-foreground">AstraWare</span>
+        </div>
         © {new Date().getFullYear()} AstraWare Client · Not affiliated with Mojang or Microsoft.
       </footer>
     </div>
