@@ -23,30 +23,30 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-border: var(--border);
   --color-ring: var(--ring);
-  --font-display: "Orbitron", system-ui, sans-serif;
+  --font-display: "Inter", system-ui, sans-serif;
 }
 
 :root {
   --radius: 0.75rem;
-  --background: oklch(0.14 0.02 270);
-  --foreground: oklch(0.98 0.01 250);
-  --card: oklch(0.18 0.03 270);
-  --card-foreground: oklch(0.98 0.01 250);
-  --primary: oklch(0.72 0.22 305);
-  --primary-foreground: oklch(0.1 0.02 270);
-  --secondary: oklch(0.24 0.04 280);
-  --secondary-foreground: oklch(0.98 0.01 250);
-  --muted: oklch(0.22 0.03 275);
-  --muted-foreground: oklch(0.72 0.03 260);
-  --accent: oklch(0.68 0.2 200);
-  --accent-foreground: oklch(0.1 0.02 270);
-  --border: oklch(0.3 0.04 280);
-  --ring: oklch(0.72 0.22 305);
+  --background: oklch(0.16 0.005 270);
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.21 0.005 270);
+  --card-foreground: oklch(0.98 0 0);
+  --primary: oklch(0.98 0 0);
+  --primary-foreground: oklch(0.16 0.005 270);
+  --secondary: oklch(0.27 0.005 270);
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.24 0.005 270);
+  --muted-foreground: oklch(0.7 0.005 270);
+  --accent: oklch(0.85 0.005 270);
+  --accent-foreground: oklch(0.16 0.005 270);
+  --border: oklch(0.3 0.005 270);
+  --ring: oklch(0.85 0.005 270);
 
-  --gradient-hero: radial-gradient(ellipse at top, oklch(0.32 0.18 295) 0%, oklch(0.14 0.02 270) 60%);
-  --gradient-primary: linear-gradient(135deg, oklch(0.72 0.22 305), oklch(0.68 0.2 200));
-  --glow-primary: 0 0 60px oklch(0.72 0.22 305 / 0.45);
-  --shadow-card: 0 10px 40px -10px oklch(0.05 0.02 270 / 0.8);
+  --gradient-hero: radial-gradient(ellipse at top, oklch(0.32 0.005 270) 0%, oklch(0.16 0.005 270) 65%);
+  --gradient-primary: linear-gradient(135deg, oklch(1 0 0), oklch(0.78 0.005 270));
+  --glow-primary: 0 0 80px oklch(1 0 0 / 0.15);
+  --shadow-card: 0 10px 40px -10px oklch(0 0 0 / 0.5);
 }
 
 @layer base {
@@ -56,5 +56,5 @@
     color: var(--color-foreground);
     font-family: "Inter", system-ui, sans-serif;
   }
-  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.03em; font-weight: 800; }
 }
